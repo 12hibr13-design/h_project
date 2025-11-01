@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guzo_Abay</title>
+    <link rel="stylesheet" href="Home.css">
+</head>
+<body>
+    <header class="navbar">
+      <div class="logo" id="logoText">Guzo_Abay</div>
+        <nav>
+      <ul class="nav-links">
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="Map.html">Map</a></li>
+        <li><a href="Log.html">Login</a></li>
+        <li><a href="Supplier.html">Supply</a></li>
+        <li><a href="Help.html">Help</a></li>
+
+        <div class="lang-switch">
+          <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="am">አማርኛ</option>
+          </select>
+        </div>
+
+      </ul>
+    </nav> 
+    </header>
+    
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1 id="heroTitle">Ride the Future with Guzo_Abay</h1>
+      <p id="heroSubtitle">Clean, fast, and smart electric bikes and scooters — designed and built in Ethiopia 🇪🇹.</p>
+      <a href="Map.html" class="btn" id="exploreBtn">Explore Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+   <footer>
+    <p id="footerText">© 2025 Guzo_Abay. All rights reserved.</p>
+  </footer>
+
+  <!-- JS SECTION -->
+  <script>
+    // Change language text
+    const languageSelect = document.getElementById("languageSelect");
+
+    languageSelect.addEventListener("change", function() {
+      if (this.value === "am") {
+        document.getElementById("heroTitle").innerText = "በ Guzo_Abay ጋር ወደ ወደፊት ተጓዝ";
+        document.getElementById("heroSubtitle").innerText = "ተስፋ ያላቸው እና ጤናማ ኤሌክትሪክ ብስክሌቶች እና ስኩተሮች — በኢትዮጵያ የተሠሩ።";
+        document.getElementById("exploreBtn").innerText = "መመልከት";
+        document.getElementById("logoText").innerText = "ጉዞ_አባይ";
+        document.getElementById("footerText").innerText = "© 2025 ጉዞ_አባይ. መብቶች ተጠብቀዋል.";
+      } 
+      else {
+        document.getElementById("heroTitle").innerText = "Ride the Future with Guzo_Abay";
+        document.getElementById("heroSubtitle").innerText = "Clean, fast, and smart electric bikes and scooters — designed and built in Ethiopia 🇪🇹.";
+        document.getElementById("exploreBtn").innerText = "Explore Now";
+        document.getElementById("logoText").innerText = "Guzo_Abay";
+        document.getElementById("footerText").innerText = "© 2025 Guzo_Abay. All rights reserved.";
+      }
+    });
+
+    // Highlight active nav link based on current page
+    const navLinks = document.querySelectorAll(".nav-links a");
+    navLinks.forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

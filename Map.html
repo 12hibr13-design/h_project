@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Bike | Map & Booking</title>
+  <link rel="stylesheet" href="Map.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="logo">Guzo_Abay</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Map.html" class="active">Map</a></li>
+        <li><a href="Log.html">Login</a></li>
+        <li><a href="Supplier.html">Supply</a></li>
+        <li><a href="Help.html">Help</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Map + Controls Section -->
+  <section class="map-section">
+    <div class="controls">
+
+      <h2>Find Your E-Bike or Scooter</h2>
+
+      <label>Start Location</label>
+      <input type="text" placeholder="Enter your starting point" id="startInput"/>
+
+      <label>Destination</label>
+      <input type="text" placeholder="Enter your destination" id="endInput"/>
+
+      <button id="findBtn">Find Nearest Station</button>
+
+      <!-- Inner Step: Bike Selection -->
+      <h3 style="margin-top:20px;">Select Vehicle</h3>
+      <select id="vehicleSelect">
+        <option disabled selected>Choose a bike...</option>
+        <option>E-Bike A - 40 ETB/hr</option>
+        <option>Scooter B - 30 ETB/hr</option>
+        <option>Urban Bike C - 25 ETB/hr</option>
+      </select>
+
+      <button style="margin-top:10px;" id="continueBtn">Continue</button>
+
+      <!-- Payment Form -->
+      <div id="paymentForm" style="margin-top:25px;">
+        <h3>Payment Form</h3>
+
+        <label>Choose Bank:</label>
+        <select id="bankSelect">
+          <option>Commercial Bank of Ethiopia</option>
+          <option>Awash Bank</option>
+          <option>Dashen Bank</option>
+        </select>
+
+        <label style="margin-top:10px;">Payment Plan:</label>
+        <select id="planSelect">
+          <option>Instant Pay</option>
+          <option>Monthly Plan</option>
+        </select>
+
+        <button style="margin-top:15px;" id="payBtn">Pay Now</button>
+      </div>
+
+      <!-- Vehicle List -->
+      <div class="results" id="results" style="margin-top:30px;">
+        <h3>Available Vehicles</h3>
+        <ul>
+          <li>E-Bike A - Adiss Kidam</li>
+          <li>Scooter B - Belay Zeleke</li>
+          <li>Urban Bike C - Piassa</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Map Display -->
+    <div id="map"></div>
+  </section>
+
+  <!-- ✅ JavaScript Added -->
+  <script>
+    const findBtn = document.getElementById("findBtn");
+    const continueBtn = document.getElementById("continueBtn");
+    const payBtn = document.getElementById("payBtn");
+
+    const results = document.getElementById("results");
+    const paymentForm = document.getElementById("paymentForm");
+
+    // Hide results and payment initially
+    results.style.display = "none";
+    paymentForm.style.display = "none";
+
+    // Show available bikes when user searches
+    findBtn.addEventListener("click", () => {
+      results.style.display = "block";
+      alert("Nearest station found! Choose your bike.");
+    });
+
+    // Show payment form only after selecting vehicle
+    continueBtn.addEventListener("click", () => {
+      const selected = document.getElementById("vehicleSelect").value;
+      if (selected === "Choose a bike...") {
+        alert("Please select a bike first.");
+      } else {
+        paymentForm.style.display = "block";
+      }
+    });
+
+    // Payment confirmation
+    payBtn.addEventListener("click", () => {
+      alert("✅ Payment successful! Enjoy your ride! 🚴‍♂️");
+    });
+
+    // Highlight active input fields
+    document.querySelectorAll("input, select").forEach(el => {
+      el.addEventListener("focus", () => el.style.border = "2px solid #0077ff");
+      el.addEventListener("blur", () => el.style.border = "");
+    });
+
+    // Nav Hover effect
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("mouseover", () => link.style.opacity = "0.6");
+      link.addEventListener("mouseout",

@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 12px 45px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.7em;
+  font-weight: 700;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 25px;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  background: #00c853;
+  color: #111;
+  border-color: #00c853;
+  box-shadow: 0 0 10px rgba(0,200,83,0.7);
+}
+
+/* Map + Controls Section */
+.map-section {
+  display: flex;
+  gap: 20px;
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* Controls Box */
+.controls {
+  width: 350px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(0,0,0,0.1);
+}
+
+.controls h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #007e4e;
+}
+
+.controls label {
+  display: block;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.controls input,
+.controls select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  outline: none;
+  transition: 0.2s;
+}
+
+.controls input:focus,
+.controls select:focus {
+  border-color: #00c853;
+  box-shadow: 0 0 6px rgba(0,200,83,0.4);
+}
+
+/* Button */
+.controls button {
+  margin-top: 18px;
+  width: 100%;
+  background: #00c853;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #111;
+  box-shadow: 0 4px 12px rgba(0,200,83,0.45);
+}
+
+.controls button:hover {
+  background: #009c43;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0,200,83,0.7);
+}
+
+/* Results Box */
+.results {
+  margin-top: 20px;
+}
+
+.results h3 {
+  color: #007e4e;
+  margin-bottom: 10px;
+}
+
+.results ul {
+  list-style: none;
+}
+
+.results li {
+  background: #e9ffe9;
+  border-left: 5px solid #00c853;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Map */
+#map {
+  flex: 1;
+  height: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+/* Payment Modal */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.25);
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.modal-content select,
+.modal-content button {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#payBtn {
+  background: #00c853;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#payBtn:hover {
+  background: #009c43;
+  color: #fff;
+}
+
+/* Close Button */
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
